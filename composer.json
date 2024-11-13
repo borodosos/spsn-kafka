@@ -1,0 +1,16 @@
+{
+    "name": "spsn/kafka",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Spsn\\Kafka\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Georgiy Malahov",
+            "email": "g.malahov@tg.dunice.net"
+        }
+    ],
+    "require": {}
+}
