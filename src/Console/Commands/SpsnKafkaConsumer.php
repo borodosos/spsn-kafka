@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Console\Commands;
+namespace Spsn\Kafka\Console\Command;
 
 use Illuminate\Console\Command;
 use Junges\Kafka\Contracts\KafkaMessage;
 use Junges\Kafka\Facades\Kafka;
 use Junges\Kafka\Message\Message;
 
-class KafkaConsumer extends Command {
+class SpsnKafkaConsumer extends Command {
     /**
      * The name and signature of the console command.
      *
