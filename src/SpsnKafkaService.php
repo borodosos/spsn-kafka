@@ -1,18 +1,17 @@
 <?php
 
-namespace App\Services;
+namespace Spsn\Kafka;
 
-use App\Constants\AppServiceConstants;
-use App\Constants\SpsnNotifyMessageTypes;
-use App\Kafka\KafkaProducer;
-use App\Kafka\Messages\SpsnNotify\VerifyEmailMessage;
+use Spsn\Kafka\Constants\SpsnNotifyMessageTypes;
+use Spsn\Kafka\Constants\SpsnServicesNames;
+use Spsn\Kafka\Messages\SpsnNotify\VerifyEmailMessage;
 
-class KafkaService {
+class SpsnKafkaService {
     public function __construct() {
     }
 
     public function sendMessageToSpsnNotify(string $messageType, string $email) {
-        $producer = new KafkaProducer(AppServiceConstants::SPSN_NOTIFY);
+        $producer = new SpsnKafkaProducer(SpsnServicesNames::SPSN_NOTIFY);
         $message = match ($messageType) {
             SpsnNotifyMessageTypes::VERIFY_EMAIL => new VerifyEmailMessage([
                 'email' => $email,

@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Kafka\Messages;
+namespace Spsn\Kafka\Messages;
 
-use App\Constants\AppServiceConstants;
 use Junges\Kafka\Message\Message;
+use Spsn\Kafka\Constants\SpsnServicesNames;
 
-class KafkaProducerMessage extends Message {
+class SpsnKafkaProducerMessage extends Message {
     public function __construct(mixed $body, array $headers = null, string $key = null) {
         parent::__construct(
             headers: $headers ?? ['header-key' => 'header-value'],
             body: json_encode($body),
-            key: $key ?? AppServiceConstants::SPSN_TD
+            key: $key ?? SpsnServicesNames::SPSN_TD
         );
     }
 }

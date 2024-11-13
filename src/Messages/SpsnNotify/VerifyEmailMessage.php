@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Kafka\Messages\SpsnNotify;
+namespace Spsn\Kafka\Messages\SpsnNotify;
+use Spsn\Kafka\Messages\SpsnKafkaProducerMessage;
 
-use App\Kafka\Messages\KafkaProducerMessage;
-
-class VerifyEmailMessage extends KafkaProducerMessage {
+class VerifyEmailMessage extends SpsnKafkaProducerMessage {
     public function __construct(mixed $body, array $headers = null, string $key = null) {
         parent::__construct(
             headers: $headers,

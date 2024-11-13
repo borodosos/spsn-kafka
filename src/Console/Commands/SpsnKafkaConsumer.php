@@ -26,8 +26,8 @@ class KafkaConsumer extends Command {
      * Execute the console command.
      */
     public function handle() {
-        $consumer = Kafka::consumer(config('kafka_config.consumer.topics'), null, config('kafka.brokers'))
-            ->withOptions(config('kafka_config.consumer.options'))
+        $consumer = Kafka::consumer(config('spsn_kafka.topics'), null, config('kafka.brokers'))
+            ->withOptions(config('spsn_kafka.consumer.options'))
             ->withHandler(function (KafkaMessage $message) {
                 event(new Message($message->getBody()));
                 $this->info('Kafka message received: ' . $message->getBody());
