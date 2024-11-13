@@ -1,6 +1,6 @@
 <?php
 
-namespace Spsn\Kafka\Console\Command;
+namespace Spsn\Kafka\Console\Commands;
 
 use Illuminate\Console\Command;
 use Junges\Kafka\Contracts\KafkaMessage;
@@ -13,7 +13,7 @@ class SpsnKafkaConsumer extends Command {
      *
      * @var string
      */
-    protected $signature = 'app:kafka-consumer';
+    protected $signature = 'spsn-kafka:consumer';
 
     /**
      * The console command description.

@@ -1,6 +1,6 @@
 {
     "name": "spsn/kafka",
-    "type": "project",
+    "type": "library",
     "autoload": {
         "psr-4": {
             "Spsn\\Kafka\\": "src/"
@@ -17,6 +17,7 @@
         "ext-rdkafka": "^6.0",
         "mateusjunges/laravel-kafka": "^2.3"
     },
+    "minimum-stability": "dev",
     "extra": {
         "laravel": {
             "providers": [
