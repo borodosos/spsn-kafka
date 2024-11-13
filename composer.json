@@ -16,5 +16,12 @@
         "php": "^8.2|^8.3",
         "ext-rdkafka": "^6.0",
         "mateusjunges/laravel-kafka": "^2.3"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Spsn\\Kafka\\Providers\\SpsnKafkaProvider"
+            ]
+        }
     }
 }
