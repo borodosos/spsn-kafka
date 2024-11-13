@@ -2,7 +2,7 @@
 namespace Spsn\Kafka\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Spsn\Kafka\Console\Command\SpsnKafkaConsumer;
+use Spsn\Kafka\Console\Commands\SpsnKafkaConsumer;
 use Spsn\Kafka\Constants\SpsnTopics;
 
 class SpsnKafkaProvider extends ServiceProvider {
