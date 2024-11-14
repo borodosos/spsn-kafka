@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Console\Commands;
+namespace Spsn\Kafka\Console\Commands;
 
 use Illuminate\Console\GeneratorCommand;
 
