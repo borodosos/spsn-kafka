@@ -38,6 +38,6 @@ class SpsnKafkaProvider extends ServiceProvider {
 
         $this->publishes([
             __DIR__ . '/../Database/Migrations/' => database_path('migrations'),
-        ], 'migrations');
+        ], 'spsn-kafka-migrations');
     }
 }
