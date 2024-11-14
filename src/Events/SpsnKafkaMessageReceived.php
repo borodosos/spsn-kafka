@@ -13,14 +13,16 @@ class SpsnKafkaMessageReceived {
     public $key;
     public $body;
     public $topicName;
+    public $headers;
 
     /**
      * Create a new event instance.
      */
-    public function __construct($key, $body, $topicName) {
+    public function __construct($key, $body, $topicName, $headers) {
         $this->key = $key;
         $this->body = $body;
         $this->topicName = $topicName;
+        $this->headers = $headers;
     }
 
     /**
