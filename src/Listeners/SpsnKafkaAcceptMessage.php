@@ -2,8 +2,8 @@
 
 namespace Spsn\Kafka\Listeners;
 
+use Spsn\Kafka\Actions\SpsnLogKafkaMessageAction;
 use Spsn\Kafka\Events\SpsnKafkaMessageReceived;
-use Spsn\Kafka\Models\SpsnLogKafkaMessage;
 
 class SpsnKafkaAcceptMessage {
     /**
@@ -17,9 +17,6 @@ class SpsnKafkaAcceptMessage {
      * Handle the event.
      */
     public function handle(SpsnKafkaMessageReceived $event): void {
-        SpsnLogKafkaMessage::create([
-            'message_body' => $event->body,
-            'spsn_app_service_id' => $event->key,
-        ]);
+        SpsnLogKafkaMessageAction::execute($event, 'success');
     }
 }

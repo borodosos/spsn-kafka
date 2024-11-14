@@ -2,9 +2,11 @@
 
 namespace Spsn\Kafka\Console\Commands;
 
+use Exception;
 use Illuminate\Console\Command;
 use Junges\Kafka\Contracts\KafkaMessage;
 use Junges\Kafka\Facades\Kafka;
+use Spsn\Kafka\Actions\SpsnLogKafkaMessageAction;
 use Spsn\Kafka\Events\SpsnKafkaMessageReceived;
 
 class SpsnKafkaConsumer extends Command {
@@ -29,8 +31,11 @@ class SpsnKafkaConsumer extends Command {
         $consumer = Kafka::consumer(config('spsn_kafka.topics'), null, config('kafka.brokers'))
             ->withOptions(config('spsn_kafka.consumer.options'))
             ->withHandler(function (KafkaMessage $message) {
-                event(new SpsnKafkaMessageReceived($message->getKey(), $message->getBody(), $message->getTopicName()));
-                $this->info('Kafka message received: ' . $message->getBody());
+                try {
+                    event(new SpsnKafkaMessageReceived($message->getKey(), $message->getBody(), $message->getTopicName()));
+                } catch (Exception $e) {
+                    SpsnLogKafkaMessageAction::execute($e, 'error');
+                }
             })
             ->build();
 
