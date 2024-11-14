@@ -1,6 +1,6 @@
 <?php
 
-namespace Spsn\Kafka\Listeners;
+namespace App\Listeners;
 
 use Spsn\Kafka\Events\SpsnKafkaMessageReceived;
 

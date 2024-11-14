@@ -1,6 +1,7 @@
 <?php
 namespace Spsn\Kafka\Providers;
 
+use App\Console\Commands\SpsnKafkaMakeListener;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\ServiceProvider;
 use Spsn\Kafka\Console\Commands\SpsnKafkaConsumer;
@@ -29,6 +30,7 @@ class SpsnKafkaProvider extends ServiceProvider {
         if ($this->app->runningInConsole()) {
             $this->commands([
                 SpsnKafkaConsumer::class,
+                SpsnKafkaMakeListener::class,
             ]);
         }
 
