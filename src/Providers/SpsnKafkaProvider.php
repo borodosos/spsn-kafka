@@ -1,13 +1,10 @@
 <?php
 namespace Spsn\Kafka\Providers;
 
-use App\Console\Commands\SpsnKafkaMakeListener;
-use Illuminate\Support\Facades\Event;
 use Illuminate\Support\ServiceProvider;
 use Spsn\Kafka\Console\Commands\SpsnKafkaConsumer;
+use Spsn\Kafka\Console\Commands\SpsnKafkaMakeListener;
 use Spsn\Kafka\Constants\SpsnTopics;
-use Spsn\Kafka\Events\SpsnKafkaMessageReceived;
-use Spsn\Kafka\Listeners\SpsnKafkaAcceptMessage;
 
 class SpsnKafkaProvider extends ServiceProvider {
     /**
@@ -33,11 +30,6 @@ class SpsnKafkaProvider extends ServiceProvider {
                 SpsnKafkaMakeListener::class,
             ]);
         }
-
-        Event::listen(
-            SpsnKafkaMessageReceived::class,
-            SpsnKafkaAcceptMessage::class,
-        );
     }
 
     private function publishesConfiguration(): void {
