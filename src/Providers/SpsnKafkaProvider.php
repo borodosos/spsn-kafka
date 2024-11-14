@@ -10,13 +10,7 @@ class SpsnKafkaProvider extends ServiceProvider {
      * Register any application services.
      */
     public function register(): void {
-        $this->publishesConfiguration();
 
-        if ($this->app->runningInConsole()) {
-            $this->commands([
-                SpsnKafkaConsumer::class,
-            ]);
-        }
     }
 
     /**
@@ -24,6 +18,14 @@ class SpsnKafkaProvider extends ServiceProvider {
      */
     public function boot(): void {
         SpsnTopics::register();
+
+        $this->publishesConfiguration();
+
+        if ($this->app->runningInConsole()) {
+            $this->commands([
+                SpsnKafkaConsumer::class,
+            ]);
+        }
     }
 
     private function publishesConfiguration(): void {
