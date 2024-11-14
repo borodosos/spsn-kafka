@@ -5,7 +5,7 @@ namespace Spsn\Kafka\Console\Commands;
 use Illuminate\Console\Command;
 use Junges\Kafka\Contracts\KafkaMessage;
 use Junges\Kafka\Facades\Kafka;
-use Junges\Kafka\Message\Message;
+use Spsn\Kafka\Events\SpsnKafkaMessageReceived;
 
 class SpsnKafkaConsumer extends Command {
     /**
@@ -29,7 +29,7 @@ class SpsnKafkaConsumer extends Command {
         $consumer = Kafka::consumer(config('spsn_kafka.topics'), null, config('kafka.brokers'))
             ->withOptions(config('spsn_kafka.consumer.options'))
             ->withHandler(function (KafkaMessage $message) {
-                event(new Message($message->getBody()));
+                event(new SpsnKafkaMessageReceived($message->getKey(), $message->getBody(), $message->getTopicName()));
                 $this->info('Kafka message received: ' . $message->getBody());
             })
             ->build();

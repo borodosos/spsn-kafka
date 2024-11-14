@@ -7,6 +7,7 @@ use Spsn\Kafka\Messages\SpsnKafkaProducerMessage;
 
 class SpsnKafkaProducer {
     private $producer;
+
     public function __construct(string $appServiceName) {
         $topic = config('spsn_kafka.topics')[$appServiceName];
         $this->producer = Kafka::publish(config('kafka.brokers'))

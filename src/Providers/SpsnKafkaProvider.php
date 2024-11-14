@@ -10,7 +10,10 @@ class SpsnKafkaProvider extends ServiceProvider {
      * Register any application services.
      */
     public function register(): void {
-
+        $this->mergeConfigFrom(
+            __DIR__ . "/../../config/spsn_kafka.php",
+            "spsn_kafka"
+        );
     }
 
     /**
@@ -32,5 +35,9 @@ class SpsnKafkaProvider extends ServiceProvider {
         $this->publishes([
             __DIR__ . "/../../config/spsn_kafka.php" => config_path('spsn_kafka.php'),
         ], 'spsn-kafka-config');
+
+        $this->publishes([
+            __DIR__ . '/../Database/Migrations/' => database_path('migrations'),
+        ], 'migrations');
     }
 }
