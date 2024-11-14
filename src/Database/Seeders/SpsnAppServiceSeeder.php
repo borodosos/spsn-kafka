@@ -3,14 +3,14 @@
 namespace Spsn\Kafka\Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
+use Spsn\Kafka\Models\SpsnAppService;
 
-class AppServiceSeeder extends Seeder {
+class SpsnAppServiceSeeder extends Seeder {
     /**
      * Run the database seeds.
      */
     public function run(): void {
-        DB::table('app_services')->truncate();
+        SpsnAppService::truncate();
         $appServices = [
             [
                 'name' => 'spsn-td',
@@ -47,7 +47,7 @@ class AppServiceSeeder extends Seeder {
         ];
 
         foreach ($appServices as $appService) {
-            DB::table('app_services')->insert($appService);
+            SpsnAppService::create($appService);
         }
     }
 }
