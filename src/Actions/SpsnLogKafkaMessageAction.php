@@ -12,7 +12,7 @@ class SpsnLogKafkaMessageAction {
         SpsnLogKafkaMessage::create([
             'message_body' => $data,
             'spsn_app_service_id' => $appServiceId ?? null,
-            'statuc' => $status,
+            'status' => $status,
         ]);
     }
 }
