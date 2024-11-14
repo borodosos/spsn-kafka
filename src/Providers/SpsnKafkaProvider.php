@@ -17,9 +17,9 @@ class SpsnKafkaProvider extends ServiceProvider {
      * Bootstrap any application services.
      */
     public function boot(): void {
-        SpsnTopics::register();
-
         $this->publishesConfiguration();
+
+        SpsnTopics::register();
 
         if ($this->app->runningInConsole()) {
             $this->commands([
