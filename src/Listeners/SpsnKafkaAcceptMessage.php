@@ -18,7 +18,7 @@ class SpsnKafkaAcceptMessage {
      */
     public function handle(SpsnKafkaMessageReceived $event): void {
         SpsnLogKafkaMessage::create([
-            'message' => $event->body,
+            'message_body' => $event->body,
             'spsn_app_service_id' => $event->key,
         ]);
     }
