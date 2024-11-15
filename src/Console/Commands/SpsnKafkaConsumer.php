@@ -29,6 +29,7 @@ class SpsnKafkaConsumer extends Command {
         $consumer = Kafka::consumer(config('spsn_kafka.topics'), null, config('kafka.brokers'))
             ->withOptions(config('spsn_kafka.consumer.options'))
             ->withHandler(function (KafkaMessage $message) {
+                $this->info('Kafka message: ', $message->getBody());
                 event(new SpsnKafkaMessageReceived($message->getKey(), $message->getBody(), $message->getTopicName(), $message->getHeaders()));
             })
             ->build();
