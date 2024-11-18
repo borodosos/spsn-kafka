@@ -9,6 +9,8 @@ class SpsnLogKafkaOutgoingMessage extends Model {
         'to_app_service',
         'status',
         'body',
+        'message_id',
+
     ];
 
     public function scopeWhereAppService($query, $appService) {

@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'app_service_name' => env('APP_SERVICE_NAME', null),
     'consumer' => [
         'options' => [
             'security.protocol' => config('kafka.securityProtocol'),

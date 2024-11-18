@@ -3,13 +3,17 @@
 namespace Spsn\Kafka\Messages;
 
 use Junges\Kafka\Message\Message;
+use Str;
 
 class SpsnKafkaProducerMessage extends Message {
-    public function __construct(mixed $body, array $headers = null, string $key = null) {
+    public function __construct(mixed $body, string $type, array $headers = null, string $key = null) {
         parent::__construct(
-            headers: $headers ?? ['header-key' => 'key', 'app_service' => env('APP_SERVICE_NAME', null)],
-            body: json_encode($body),
-            key: $key ?? 'key'
+            headers: $headers ?? ['header-key' => 'key', 'id' => Str::uuid(), 'app_service' => config('spsn_kafka.app_service_name')],
+            body: json_encode([
+                'type' => $type,
+                'body' => $body,
+            ]),
+            key: $key ?? 'key',
         );
     }
 }

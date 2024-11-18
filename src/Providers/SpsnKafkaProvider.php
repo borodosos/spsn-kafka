@@ -1,8 +1,10 @@
 <?php
 namespace Spsn\Kafka\Providers;
 
+use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Support\ServiceProvider;
 use Spsn\Kafka\Console\Commands\SpsnKafkaConsumer;
+use Spsn\Kafka\Console\Commands\SpsnKafkaLogClear;
 use Spsn\Kafka\Console\Commands\SpsnKafkaMakeListener;
 use Spsn\Kafka\Constants\SpsnKafkaConsumerTopic;
 use Spsn\Kafka\Constants\SpsnKafkaTopics;
@@ -30,8 +32,13 @@ class SpsnKafkaProvider extends ServiceProvider {
             $this->commands([
                 SpsnKafkaConsumer::class,
                 SpsnKafkaMakeListener::class,
+                SpsnKafkaLogClear::class,
             ]);
+
+            $schedule = $this->app->make(Schedule::class);
+            $schedule->command('spsn-kafka:log-clear')->monthly()->withoutOverlapping();
         }
+
     }
 
     private function publishesConfiguration(): void {
