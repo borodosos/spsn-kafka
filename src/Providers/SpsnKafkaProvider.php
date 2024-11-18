@@ -8,6 +8,7 @@ use Spsn\Kafka\Console\Commands\SpsnKafkaLogClear;
 use Spsn\Kafka\Console\Commands\SpsnKafkaMakeListener;
 use Spsn\Kafka\Constants\SpsnKafkaConsumerTopic;
 use Spsn\Kafka\Constants\SpsnKafkaTopics;
+use Spsn\Kafka\Constants\SpsnKafkaUsernames;
 
 class SpsnKafkaProvider extends ServiceProvider {
     /**
@@ -26,6 +27,7 @@ class SpsnKafkaProvider extends ServiceProvider {
     public function boot(): void {
         $this->publishesConfiguration();
         SpsnKafkaTopics::register();
+        SpsnKafkaUsernames::register();
         SpsnKafkaConsumerTopic::register();
 
         if ($this->app->runningInConsole()) {
