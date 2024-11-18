@@ -23,6 +23,7 @@ class SpsnKafkaMessageReceived {
         $this->body = $body;
         $this->topicName = $topicName;
         $this->headers = $headers;
+
     }
 
     /**

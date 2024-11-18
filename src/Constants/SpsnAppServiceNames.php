@@ -2,7 +2,7 @@
 
 namespace Spsn\Kafka\Constants;
 
-class SpsnServicesNames {
+class SpsnAppServiceNames {
     public const SPSN_TD = 'spsn-td';
     public const SPSN_NOTIFY = 'spsn-notify';
     public const SPSN_BILLING = 'spsn-billing';

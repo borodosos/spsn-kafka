@@ -1,6 +1,6 @@
 <?php
 
-namespace Spsn\Kafka\Constants;
+namespace Spsn\Kafka\Constants\MessageTypes\SpsnNotifySrv;
 
 class SpsnNotifyMessageTypes {
     public const VERIFY_EMAIL = 'verify_email';

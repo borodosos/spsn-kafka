@@ -4,7 +4,8 @@ namespace Spsn\Kafka\Providers;
 use Illuminate\Support\ServiceProvider;
 use Spsn\Kafka\Console\Commands\SpsnKafkaConsumer;
 use Spsn\Kafka\Console\Commands\SpsnKafkaMakeListener;
-use Spsn\Kafka\Constants\SpsnTopics;
+use Spsn\Kafka\Constants\SpsnKafkaConsumerTopic;
+use Spsn\Kafka\Constants\SpsnKafkaTopics;
 
 class SpsnKafkaProvider extends ServiceProvider {
     /**
@@ -22,7 +23,8 @@ class SpsnKafkaProvider extends ServiceProvider {
      */
     public function boot(): void {
         $this->publishesConfiguration();
-        SpsnTopics::register();
+        SpsnKafkaTopics::register();
+        SpsnKafkaConsumerTopic::register();
 
         if ($this->app->runningInConsole()) {
             $this->commands([
