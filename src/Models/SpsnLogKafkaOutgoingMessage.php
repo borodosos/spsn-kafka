@@ -4,7 +4,8 @@ namespace Spsn\Kafka\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class SpsnLogKafkaOutgoingMessage extends Model {
+class SpsnLogKafkaOutgoingMessage extends Model
+{
     protected $fillable = [
         'to_app_service',
         'status',
@@ -13,7 +14,8 @@ class SpsnLogKafkaOutgoingMessage extends Model {
 
     ];
 
-    public function scopeWhereAppService($query, $appService) {
+    public function scopeWhereAppService($query, $appService)
+    {
         return $query->where('to_app_service', $appService);
     }
 }

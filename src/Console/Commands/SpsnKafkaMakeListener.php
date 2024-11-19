@@ -4,7 +4,8 @@ namespace Spsn\Kafka\Console\Commands;
 
 use Illuminate\Console\GeneratorCommand;
 
-class SpsnKafkaMakeListener extends GeneratorCommand {
+class SpsnKafkaMakeListener extends GeneratorCommand
+{
     /**
      * The name and signature of the console command.
      *
@@ -31,8 +32,9 @@ class SpsnKafkaMakeListener extends GeneratorCommand {
      *
      * @return string
      */
-    protected function getStub() {
-        return __DIR__ . '/stubs/kafka.listener.stub';
+    protected function getStub()
+    {
+        return __DIR__.'/stubs/kafka.listener.stub';
     }
 
     /**
@@ -42,7 +44,8 @@ class SpsnKafkaMakeListener extends GeneratorCommand {
      *
      * @return string
      */
-    protected function getDefaultNamespace($rootNamespace) {
-        return $rootNamespace . '\Listeners';
+    protected function getDefaultNamespace($rootNamespace)
+    {
+        return $rootNamespace.'\Listeners';
     }
 }
