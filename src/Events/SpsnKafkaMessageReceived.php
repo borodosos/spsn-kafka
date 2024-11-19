@@ -7,8 +7,11 @@ use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class SpsnKafkaMessageReceived {
-    use Dispatchable, InteractsWithSockets, SerializesModels;
+class SpsnKafkaMessageReceived
+{
+    use Dispatchable;
+    use InteractsWithSockets;
+    use SerializesModels;
 
     public $key;
     public $body;
@@ -18,12 +21,12 @@ class SpsnKafkaMessageReceived {
     /**
      * Create a new event instance.
      */
-    public function __construct($key, $body, $topicName, $headers) {
+    public function __construct($key, $body, $topicName, $headers)
+    {
         $this->key = $key;
         $this->body = $body;
         $this->topicName = $topicName;
         $this->headers = $headers;
-
     }
 
     /**
@@ -31,7 +34,8 @@ class SpsnKafkaMessageReceived {
      *
      * @return array<int, \Illuminate\Broadcasting\Channel>
      */
-    public function broadcastOn(): array {
+    public function broadcastOn(): array
+    {
         return [
             new PrivateChannel('channel-name'),
         ];

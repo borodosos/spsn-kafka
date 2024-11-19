@@ -8,7 +8,8 @@ use Junges\Kafka\Facades\Kafka;
 use Spsn\Kafka\Actions\MakeLogKafkaIncomingMessageAction;
 use Spsn\Kafka\Events\SpsnKafkaMessageReceived;
 
-class SpsnKafkaConsumer extends Command {
+class SpsnKafkaConsumer extends Command
+{
     /**
      * The name and signature of the console command.
      *
@@ -26,19 +27,20 @@ class SpsnKafkaConsumer extends Command {
     /**
      * Execute the console command.
      */
-    public function handle() {
+    public function handle()
+    {
         $consumer = Kafka::consumer([config('spsn_kafka.consumer.topic')])
             ->withBrokers(config('kafka.brokers'))
             ->withOptions(config('spsn_kafka.consumer.options'))
             ->withConsumerGroupId(config('kafka.consumer_group_id'))
             ->withAutoCommit()
             ->withHandler(function (KafkaMessage $message) {
-                $this->info('Kafka message: ' . $message->getBody() . json_encode($message->getHeaders()));
+                $this->info('Kafka message: '.$message->getBody().json_encode($message->getHeaders()));
 
                 $body = json_encode([
-                    'topic' => $message->getTopicName(),
-                    'key' => $message->getKey(),
-                    'body' => $message->getBody(),
+                    'topic'   => $message->getTopicName(),
+                    'key'     => $message->getKey(),
+                    'body'    => $message->getBody(),
                     'headers' => $message->getHeaders(),
                 ]);
 

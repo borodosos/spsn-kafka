@@ -7,7 +7,8 @@ use Illuminate\Console\Command;
 use Spsn\Kafka\Models\SpsnLogKafkaIncomingMessage;
 use Spsn\Kafka\Models\SpsnLogKafkaOutgoingMessage;
 
-class SpsnKafkaLogClear extends Command {
+class SpsnKafkaLogClear extends Command
+{
     /**
      * The name and signature of the console command.
      *
@@ -25,7 +26,8 @@ class SpsnKafkaLogClear extends Command {
     /**
      * Execute the console command.
      */
-    public function handle() {
+    public function handle()
+    {
         SpsnLogKafkaIncomingMessage::where('created_at', '<', Carbon::now()->subDays(65))->delete();
         SpsnLogKafkaOutgoingMessage::where('created_at', '<', Carbon::now()->subDays(65))->delete();
     }
