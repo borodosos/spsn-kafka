@@ -19,6 +19,11 @@ class SpsnKafkaProvider extends ServiceProvider {
             __DIR__ . "/../../config/spsn_kafka.php",
             "spsn_kafka"
         );
+
+        $this->mergeConfigFrom(
+            __DIR__ . "/../../config/spsn_services.php",
+            "spsn_services"
+        );
     }
 
     /**
@@ -47,6 +52,10 @@ class SpsnKafkaProvider extends ServiceProvider {
         $this->publishes([
             __DIR__ . "/../../config/spsn_kafka.php" => config_path('spsn_kafka.php'),
         ], 'spsn-kafka-config');
+
+        $this->publishes([
+            __DIR__ . "/../../config/spsn_services.php" => config_path('spsn_services.php'),
+        ], 'spsn-services');
 
         $this->publishes([
             __DIR__ . '/../Database/Migrations/' => database_path('migrations'),
