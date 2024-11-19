@@ -22,6 +22,6 @@ class SpsnKafkaProducer {
     }
     public function sendMessage(SpsnKafkaProducerMessage $message) {
         SpsnKafkaProducerJob::dispatch($message, $this->producer, $this->appServiceName)->onQueue('kafka_queue');
-        return $message->getHeaders()['id'];
+        return $message;
     }
 }

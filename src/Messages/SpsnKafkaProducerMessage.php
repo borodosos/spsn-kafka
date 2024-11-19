@@ -11,7 +11,7 @@ class SpsnKafkaProducerMessage extends Message {
             headers: $headers ?? ['header-key' => 'key', 'id' => Str::uuid(), 'app_service' => config('spsn_kafka.app_service_name')],
             body: json_encode([
                 'type' => $type,
-                'body' => $body,
+                'payload' => $body,
             ]),
             key: $key ?? 'key',
         );
