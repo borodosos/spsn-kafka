@@ -10,4 +10,9 @@ class SpsnNotifyMessageTypes {
     public const REGISTRATION_NEW_PARTNER = 'registration_new_partner';
     public const INVITE_USER = 'invite_user';
     public const INVITE_PARTNER = 'invite_partner';
+
+    public const MESSAGE_TYPE_SMS = 'sms';
+    public const MESSAGE_TYPE_EMAIL = 'email';
+    public const MESSAGE_TYPE_MESSAGES = 'messages';
+
 }
