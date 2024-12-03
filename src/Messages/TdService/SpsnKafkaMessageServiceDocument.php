@@ -1,6 +1,6 @@
 <?php
 
-namespace Spsn\Kafka\Messages;
+namespace Spsn\Kafka\Messages\TdService;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
