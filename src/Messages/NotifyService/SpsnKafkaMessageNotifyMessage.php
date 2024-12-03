@@ -20,11 +20,9 @@ class SpsnKafkaMessageNotifyMessage extends JsonResource {
         $this->validateNotifyMessage($this->data);
 
         return [
-            [
-                'notify_type' => $this->data['notify_type'],
-                'address' => $this->data['address'],
-                'data' => $this->data['data'],
-            ],
+            'notify_type' => $this->data['notify_type'],
+            'address' => $this->data['address'],
+            'data' => $this->data['data'],
         ];
     }
 }
