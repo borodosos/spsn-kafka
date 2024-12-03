@@ -9,7 +9,7 @@ use Str;
 class SpsnKafkaProducerMessage extends Message {
     public function __construct(
         string $messageType,
-        SpsnKafkaMessageInvitation | SpsnKafkaMessageContent | SpsnKafkaMessageServiceDocument | array $message = null,
+        ?array $message = null,
         ?array $headers = null,
         ?string $key = null
     ) {
