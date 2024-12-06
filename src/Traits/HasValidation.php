@@ -82,7 +82,7 @@ trait HasValidation {
             'service_message' => 'required|array',
             'service_message.code' => 'required',
             'service_message.content' => 'nullable',
-            'service_message.payload' => 'required|array',
+            'service_message.payload' => 'nullable|array',
             'service_message.payload.*.ticket_id' => 'required|string',
             'service_message.payload.*.country_code' => 'required|string',
             'service_message.payload.*.result_code' => 'required|integer',
