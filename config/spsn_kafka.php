@@ -32,6 +32,7 @@ return [
             SpsnAppServiceNames::SPSN_IDOCS => 'stable-idocs-srv',
             SpsnAppServiceNames::SPSN_STT => 'stable-stt-srv',
             SpsnAppServiceNames::SPSN_LOG => 'stable-log-srv',
+            SpsnAppServiceNames::SPSN_STORAGE => 'stable-storage-srv',
         ],
         'stage' => [
             SpsnAppServiceNames::SPSN_TD => 'stage-td-srv',
@@ -41,6 +42,7 @@ return [
             SpsnAppServiceNames::SPSN_IDOCS => 'stage-idocs-srv',
             SpsnAppServiceNames::SPSN_STT => 'stage-stt-srv',
             SpsnAppServiceNames::SPSN_LOG => 'stage-log-srv',
+            SpsnAppServiceNames::SPSN_STORAGE => 'stage-storage-srv',
         ],
         'dev_custom' => [
             SpsnAppServiceNames::SPSN_TD => 'dever-td-srv',
@@ -50,6 +52,7 @@ return [
             SpsnAppServiceNames::SPSN_IDOCS => 'dever-idocs-srv',
             SpsnAppServiceNames::SPSN_STT => 'dever-stt-srv',
             SpsnAppServiceNames::SPSN_LOG => 'dever-log-srv',
+            SpsnAppServiceNames::SPSN_STORAGE => 'dever-storage-srv',
         ],
         default => [
             SpsnAppServiceNames::SPSN_TD => 'dev-td-srv',
@@ -59,6 +62,7 @@ return [
             SpsnAppServiceNames::SPSN_IDOCS => 'dev-idocs-srv',
             SpsnAppServiceNames::SPSN_STT => 'dev-stt-srv',
             SpsnAppServiceNames::SPSN_LOG => 'dev-log-srv',
+            SpsnAppServiceNames::SPSN_STORAGE => 'dev-storage-srv',
         ]
     },
     'usernames' => match (env('APP_ENV')) {
@@ -70,6 +74,7 @@ return [
             SpsnAppServiceNames::SPSN_IDOCS => 'kuser-td-stable-idocs-srv',
             SpsnAppServiceNames::SPSN_STT => 'kuser-td-stable-stt-srv',
             SpsnAppServiceNames::SPSN_LOG => 'kuser-td-stable-log-srv',
+            SpsnAppServiceNames::SPSN_STORAGE => 'kuser-td-stable-storage-srv',
         ],
         'stage' => [
             SpsnAppServiceNames::SPSN_TD => 'kuser-td-stage-td-srv',
@@ -79,6 +84,7 @@ return [
             SpsnAppServiceNames::SPSN_IDOCS => 'kuser-td-stage-idocs-srv',
             SpsnAppServiceNames::SPSN_STT => 'kuser-td-stage-stt-srv',
             SpsnAppServiceNames::SPSN_LOG => 'kuser-td-stage-log-srv',
+            SpsnAppServiceNames::SPSN_STORAGE => 'kuser-td-stage-storage-srv',
         ],
         default => [
             SpsnAppServiceNames::SPSN_TD => 'kuser-td-dev-td-srv',
@@ -88,6 +94,7 @@ return [
             SpsnAppServiceNames::SPSN_IDOCS => 'kuser-td-dev-idocs-srv',
             SpsnAppServiceNames::SPSN_STT => 'kuser-td-dev-stt-srv',
             SpsnAppServiceNames::SPSN_LOG => 'kuser-td-dev-log-srv',
+            SpsnAppServiceNames::SPSN_STORAGE => 'kuser-td-dev-storage-srv',
         ]
     },
 ];

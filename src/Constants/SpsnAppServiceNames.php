@@ -12,4 +12,5 @@ class SpsnAppServiceNames
     public const SPSN_STT = 'spsn-stt-int';
     public const SPSN_LOG = 'spsn-log';
     public const SPSN_CA = 'spsn-ca';
+    public const SPSN_STORAGE = 'spsn-storage';
 }
