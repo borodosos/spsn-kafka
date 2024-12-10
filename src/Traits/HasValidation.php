@@ -106,4 +106,17 @@ trait HasValidation {
             throw new \Exception($validator->errors());
         }
     }
+
+    public function validateTicketContentMessage($data) {
+        $validator = Validator::make($data, [
+            'notify_type' => 'required|string',
+            'address' => 'required|string',
+            'data' => 'required|array',
+
+        ]);
+
+        if ($validator->fails()) {
+            throw new \Exception($validator->errors());
+        }
+    }
 }
