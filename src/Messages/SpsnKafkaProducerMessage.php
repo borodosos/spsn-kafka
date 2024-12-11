@@ -8,12 +8,13 @@ use Spsn\Kafka\Messages\NotifyService\SpsnKafkaMessageNotifyMessage;
 use Spsn\Kafka\Messages\TdService\SpsnKafkaMessageContent;
 use Spsn\Kafka\Messages\TdService\SpsnKafkaMessageInvitation;
 use Spsn\Kafka\Messages\TdService\SpsnKafkaMessageServiceDocument;
+use Spsn\Kafka\Messages\TicketService\SpsnKafkaMessageTicketContentMessage;
 use Str;
 
 class SpsnKafkaProducerMessage extends Message {
     public function __construct(
         string $messageType,
-        SpsnKafkaMessageInvitation | SpsnKafkaMessageContent | SpsnKafkaMessageServiceDocument | SpsnKafkaMessageNotifyMessage | array $message = null,
+        SpsnKafkaMessageInvitation | SpsnKafkaMessageContent | SpsnKafkaMessageServiceDocument | SpsnKafkaMessageNotifyMessage | SpsnKafkaMessageTicketContentMessage | array $message = null,
         ?array $headers = null,
         ?string $key = null
     ) {

@@ -107,12 +107,65 @@ trait HasValidation {
         }
     }
 
-    public function validateTicketContentMessage($data) {
+    public function validateTicketContentMessage($data): void
+    {
         $validator = Validator::make($data, [
-            'notify_type' => 'required|string',
-            'address' => 'required|string',
-            'data' => 'required|array',
+            'message_id' => 'required',
+            'workflow_id' => 'required',
+            'document_id' => 'required',
+            'sender_operator' => 'required|array',
+            'sender_operator.id' => 'required',
+            'recipient_operator' => 'required|array',
+            'recipient_operator.id' => 'required',
+            'sender' => 'required|array',
+            'sender.id' => 'required',
+            'recipient' => 'required|array',
+            'recipient.id' => 'required',
+            'document' => 'required|array',
+            'document.signature_required' => 'required|boolean',
+            'document.signature_type' => 'required|string',
+            'document.meta' => 'required|array',
+            'document.meta.document_name' => 'required|string',
+            'document.meta.artifacts' => 'required|array',
+            'document.meta.artifacts.*.type' => 'required|string',
+            'document.meta.artifacts.*.id' => 'required',
+            'document.meta.message' => 'string',
+            'document.country_codes' => 'required|array',
+            'document.country_codes.*' => 'string',
+            'document.content' => 'required|string'
+        ]);
 
+        if ($validator->fails()) {
+            throw new \Exception($validator->errors());
+        }
+    }
+
+    public function validateStorageContentMessage($data): void
+    {
+        $validator = Validator::make($data, [
+            'message_id' => 'required',
+            'workflow_id' => 'required',
+            'document_id' => 'required',
+            'sender_operator' => 'required|array',
+            'sender_operator.id' => 'required',
+            'recipient_operator' => 'required|array',
+            'recipient_operator.id' => 'required',
+            'sender' => 'required|array',
+            'sender.id' => 'required',
+            'recipient' => 'required|array',
+            'recipient.id' => 'required',
+            'document' => 'required|array',
+            'document.signature_required' => 'required|boolean',
+            'document.signature_type' => 'required|string',
+            'document.meta' => 'required|array',
+            'document.meta.document_name' => 'required|string',
+            'document.meta.artifacts' => 'required|array',
+            'document.meta.artifacts.*.type' => 'required|string',
+            'document.meta.artifacts.*.id' => 'required',
+            'document.meta.message' => 'string',
+            'document.country_codes' => 'required|array',
+            'document.country_codes.*' => 'string',
+            'document.content' => 'required|string'
         ]);
 
         if ($validator->fails()) {
