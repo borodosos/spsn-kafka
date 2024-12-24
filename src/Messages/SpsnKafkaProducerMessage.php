@@ -4,18 +4,12 @@ namespace Spsn\Kafka\Messages;
 
 use Carbon\Carbon;
 use Junges\Kafka\Message\Message;
-use Spsn\Kafka\Messages\NotifyService\SpsnKafkaMessageNotifyMessage;
-use Spsn\Kafka\Messages\StorageService\SpsnKafkaMessageStorageContentMessage;
-use Spsn\Kafka\Messages\TdService\SpsnKafkaMessageContent;
-use Spsn\Kafka\Messages\TdService\SpsnKafkaMessageInvitation;
-use Spsn\Kafka\Messages\TdService\SpsnKafkaMessageServiceDocument;
-use Spsn\Kafka\Messages\TicketService\SpsnKafkaMessageTicketContentMessage;
-use Illuminate\Support\Str;
+use Str;
 
 class SpsnKafkaProducerMessage extends Message {
     public function __construct(
         string $messageType,
-        SpsnKafkaMessageInvitation | SpsnKafkaMessageContent | SpsnKafkaMessageServiceDocument | SpsnKafkaMessageNotifyMessage | SpsnKafkaMessageTicketContentMessage | SpsnKafkaMessageStorageContentMessage | array $message = null,
+        mixed $message = null,
         ?array $headers = null,
         ?string $key = null
     ) {

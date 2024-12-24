@@ -15,7 +15,8 @@
     "require": {
         "php": "^8.2|^8.3",
         "ext-rdkafka": "^6.0",
-        "mateusjunges/laravel-kafka": "^2.3"
+        "mateusjunges/laravel-kafka": "^2.3",
+        "spatie/laravel-data": "dev-main"
     },
     "minimum-stability": "dev",
     "extra": {
