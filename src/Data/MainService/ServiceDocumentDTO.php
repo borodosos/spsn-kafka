@@ -1,6 +1,6 @@
 <?php
 
-namespace Spsn\Kafka\Data;
+namespace Spsn\Kafka\Data\MainService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Str;
 use Spatie\LaravelData\Data;
@@ -8,8 +8,8 @@ use Spatie\LaravelData\Support\Transformation\TransformationContext;
 use Spatie\LaravelData\Support\Transformation\TransformationContextFactory;
 use Spsn\Kafka\Constants\MessageTypes\SpsnTdSrv\SpsnTdMessageTypes;
 
-class ContentMessageDTO extends Data {
-    private string $message_type = SpsnTdMessageTypes::CONTENT;
+class ServiceDocumentDTO extends Data {
+    private string $message_type = SpsnTdMessageTypes::SERVICE_DOCUMENT;
 
     public function __construct(
         public string $workflow_id,
@@ -18,7 +18,7 @@ class ContentMessageDTO extends Data {
         public string $recipient_operator_id,
         public string $sender_id,
         public string $recipient_id,
-        public DocumentContentDTO $document,
+        public ServiceMessageDTO $message_dto,
     ) {
     }
 
@@ -49,7 +49,7 @@ class ContentMessageDTO extends Data {
             'recipient' => [
                 'id' => $this->recipient_id,
             ],
-            'document' => $this->document,
+            'service_message' => $this->message_dto,
         ];
     }
 }

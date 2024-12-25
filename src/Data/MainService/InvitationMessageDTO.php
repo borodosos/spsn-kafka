@@ -1,6 +1,6 @@
 <?php
 
-namespace Spsn\Kafka\Data;
+namespace Spsn\Kafka\Data\MainService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Str;
 use Spatie\LaravelData\Data;

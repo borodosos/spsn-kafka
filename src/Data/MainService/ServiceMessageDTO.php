@@ -1,15 +1,14 @@
 <?php
 
-namespace Spsn\Kafka\Data;
+namespace Spsn\Kafka\Data\MainService;
 use Illuminate\Http\JsonResponse;
 use Spatie\LaravelData\Data;
 
-class DocumentMetaDTO extends Data {
+class ServiceMessageDTO extends Data {
     public function __construct(
-        public string $document_name,
-
-        /** @var DocumentArtifactDTO[] */
-        public array $artifacts,
+        public string $code,
+        public string $content,
+        public ?string $payload = null
     ) {
     }
 
@@ -21,4 +20,5 @@ class DocumentMetaDTO extends Data {
             throw new \Illuminate\Http\Exceptions\HttpResponseException(response()->json($e->getMessage(), JsonResponse::HTTP_BAD_REQUEST));
         }
     }
+
 }
