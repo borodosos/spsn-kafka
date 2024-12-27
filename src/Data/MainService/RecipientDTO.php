@@ -4,10 +4,15 @@ namespace Spsn\Kafka\Data\MainService;
 use Illuminate\Http\JsonResponse;
 use Spatie\LaravelData\Data;
 
-class DocumentArtifactDTO extends Data {
+class RecipientDTO extends Data {
     public function __construct(
-        public string $type,
         public string $id,
+        public string $country_code,
+        public string $company,
+        public string | null $inn,
+        public string | null $kpp,
+        public string | null $bin,
+        public string $email,
     ) {
     }
 

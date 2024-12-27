@@ -12,22 +12,12 @@ class InvitationMessageDTO extends Data {
     private string $message_type = SpsnTdMessageTypes::INVITATION;
 
     public function __construct(
-        public string $sender_operator_id,
-        public string $recipient_operator_id,
-        public string $sender_id,
-        public string $sender_country_code,
-        public string $sender_company,
-        public string $sender_inn,
-        public string $sender_kpp,
-        public string $sender_bin,
-        public string $sender_email,
-        public string $recipient_id,
-        public string $recipient_country_code,
-        public string $recipient_company,
-        public string $recipient_inn,
-        public string $recipient_kpp,
-        public string $recipient_bin,
-        public string $recipient_email,
+        public ?string $message_id = Str::uuid(),
+        public SenderOperatorDTO $sender_operator,
+        public RecipientOperatorDTO $recipient_operator,
+        public SenderDTO $sender,
+        public RecipientDTO $recipient,
+
     ) {
     }
 
@@ -36,31 +26,31 @@ class InvitationMessageDTO extends Data {
         try {
             return parent::from(...$payloads);
         } catch (\Exception $e) {
-            throw new \Illuminate\Http\Exceptions\HttpResponseException(response()->json($e->getMessage(), JsonResponse::HTTP_BAD_REQUEST));
+            throw new \Illuminate\Http\Exceptions\HttpResponseException(response()->json(['message' => $e->getMessage()], JsonResponse::HTTP_INTERNAL_SERVER_ERROR));
         }
     }
 
     public function transform(null | TransformationContextFactory | TransformationContext $transformationContext = null): array {
         return [
-            "ext_message_id" => Str::uuid(),
+            "message_id" => $this->message_id,
             "message_type" => $this->message_type,
             "sender" => [
-                "id" => $this->sender_id,
-                "country_code" => $this->sender_country_code,
-                "company" => $this->sender_company,
-                "inn" => $this->sender_inn,
-                "kpp" => $this->sender_kpp,
-                "bin" => $this->sender_email,
-                "email" => $this->sender_email,
+                "id" => $this->sender->id,
+                "country_code" => $this->sender->country_code,
+                "company" => $this->sender->company,
+                "inn" => $this->sender->inn,
+                "kpp" => $this->sender->kpp,
+                "bin" => $this->sender->bin,
+                "email" => $this->sender->email,
             ],
             "recipient" => [
-                "id" => $this->recipient_id,
-                "country_code" => $this->recipient_country_code,
-                "company" => $this->recipient_company,
-                "inn" => $this->recipient_inn,
-                "kpp" => $this->recipient_kpp,
-                "bin" => $this->recipient_email,
-                "email" => $this->recipient_email,
+                "id" => $this->recipient->id,
+                "country_code" => $this->recipient->country_code,
+                "company" => $this->recipient->company,
+                "inn" => $this->recipient->inn,
+                "kpp" => $this->recipient->kpp,
+                "bin" => $this->recipient->bin,
+                "email" => $this->recipient->email,
             ],
         ];
     }

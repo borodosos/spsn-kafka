@@ -12,13 +12,14 @@ class ServiceDocumentDTO extends Data {
     private string $message_type = SpsnTdMessageTypes::SERVICE_DOCUMENT;
 
     public function __construct(
+        public ?string $message_id = Str::uuid(),
         public string $workflow_id,
         public string $document_id,
-        public string $sender_operator_id,
-        public string $recipient_operator_id,
-        public string $sender_id,
-        public string $recipient_id,
-        public ServiceMessageDTO $message_dto,
+        public SenderOperatorDTO $sender_operator,
+        public RecipientOperatorDTO $recipient_operator,
+        public ContentSenderDTO $sender,
+        public ContentRecipientDTO $recipient,
+        public ServiceMessageDTO $message,
     ) {
     }
 
@@ -27,13 +28,13 @@ class ServiceDocumentDTO extends Data {
         try {
             return parent::from(...$payloads);
         } catch (\Exception $e) {
-            throw new \Illuminate\Http\Exceptions\HttpResponseException(response()->json($e->getMessage(), JsonResponse::HTTP_BAD_REQUEST));
+            throw new \Illuminate\Http\Exceptions\HttpResponseException(response()->json(['message' => $e->getMessage()], JsonResponse::HTTP_INTERNAL_SERVER_ERROR));
         }
     }
 
     public function transform(null | TransformationContextFactory | TransformationContext $transformationContext = null): array {
         return [
-            'message_id' => Str::uuid(),
+            'message_id' => $this->message_id,
             'workflow_id' => $this->workflow_id,
             'document_id' => $this->document_id,
             'message_type' => $this->message_type,
@@ -49,7 +50,7 @@ class ServiceDocumentDTO extends Data {
             'recipient' => [
                 'id' => $this->recipient_id,
             ],
-            'service_message' => $this->message_dto,
+            'service_message' => $this->message,
         ];
     }
 }

@@ -4,9 +4,8 @@ namespace Spsn\Kafka\Data\MainService;
 use Illuminate\Http\JsonResponse;
 use Spatie\LaravelData\Data;
 
-class DocumentArtifactDTO extends Data {
+class ContentSenderDTO extends Data {
     public function __construct(
-        public string $type,
         public string $id,
     ) {
     }
