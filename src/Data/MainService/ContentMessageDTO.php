@@ -12,7 +12,6 @@ class ContentMessageDTO extends Data {
     private string $message_type = SpsnTdMessageTypes::CONTENT;
 
     public function __construct(
-        public ?string $message_id = null,
         public string $workflow_id,
         public string $document_id,
         public SenderOperatorDTO $sender_operator,
@@ -20,6 +19,7 @@ class ContentMessageDTO extends Data {
         public ContentSenderDTO $sender,
         public ContentRecipientDTO $recipient,
         public DocumentContentDTO $document,
+        public string | int | null $message_id = null,
     ) {
     }
 
