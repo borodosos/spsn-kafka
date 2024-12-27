@@ -39,16 +39,16 @@ class ServiceDocumentDTO extends Data {
             'document_id' => $this->document_id,
             'message_type' => $this->message_type,
             'sender_operator' => [
-                'id' => $this->sender_operator_id,
+                'id' => $this->sender_operator->id,
             ],
             'recipient_operator' => [
-                'id' => $this->recipient_operator_id,
+                'id' => $this->recipient_operator->id,
             ],
             'sender' => [
-                'id' => $this->sender_id,
+                'id' => $this->sender->id,
             ],
             'recipient' => [
-                'id' => $this->recipient_id,
+                'id' => $this->recipient->id,
             ],
             'service_message' => $this->message,
         ];
