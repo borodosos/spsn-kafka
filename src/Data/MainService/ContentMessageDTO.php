@@ -12,14 +12,14 @@ class ContentMessageDTO extends Data {
     private string $message_type = SpsnTdMessageTypes::CONTENT;
 
     public function __construct(
-        public ?string $message_id = null,
         public string $workflow_id,
         public string $document_id,
-        public SenderOperatorDTO $sender_operator,
-        public RecipientOperatorDTO $recipient_operator,
-        public ContentSenderDTO $sender,
-        public ContentRecipientDTO $recipient,
+        public string $sender_operator_id,
+        public string $recipient_operator_id,
+        public string $sender_id,
+        public string $recipient_id,
         public DocumentContentDTO $document,
+        public string | int | null $message_id = null,
     ) {
     }
 
@@ -28,7 +28,7 @@ class ContentMessageDTO extends Data {
         try {
             return parent::from(...$payloads);
         } catch (\Exception $e) {
-            throw new \Illuminate\Http\Exceptions\HttpResponseException(response()->json(['message' => $e->getMessage()], JsonResponse::HTTP_INTERNAL_SERVER_ERROR));
+            throw new \Illuminate\Http\Exceptions\HttpResponseException(response()->json($e->getMessage(), JsonResponse::HTTP_BAD_REQUEST));
         }
     }
 
@@ -39,16 +39,16 @@ class ContentMessageDTO extends Data {
             'document_id' => $this->document_id,
             'message_type' => $this->message_type,
             'sender_operator' => [
-                'id' => $this->sender_operator->id,
+                'id' => $this->sender_operator_id,
             ],
             'recipient_operator' => [
-                'id' => $this->recipient_operator->id,
+                'id' => $this->recipient_operator_id,
             ],
             'sender' => [
-                'id' => $this->sender->id,
+                'id' => $this->sender_id,
             ],
             'recipient' => [
-                'id' => $this->recipient->id,
+                'id' => $this->recipient_id,
             ],
             'document' => $this->document,
         ];
