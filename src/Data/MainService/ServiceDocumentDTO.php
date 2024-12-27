@@ -12,6 +12,7 @@ class ServiceDocumentDTO extends Data {
     private string $message_type = SpsnTdMessageTypes::SERVICE_DOCUMENT;
 
     public function __construct(
+        public ?string $message_id = null,
         public string $workflow_id,
         public string $document_id,
         public SenderOperatorDTO $sender_operator,
@@ -33,7 +34,7 @@ class ServiceDocumentDTO extends Data {
 
     public function transform(null | TransformationContextFactory | TransformationContext $transformationContext = null): array {
         return [
-            'message_id' => Str::uuid(),
+            'message_id' => $this->message_id ?? Str::uuid(),
             'workflow_id' => $this->workflow_id,
             'document_id' => $this->document_id,
             'message_type' => $this->message_type,
