@@ -12,7 +12,6 @@ class InvitationMessageDTO extends Data {
     private string $message_type = SpsnTdMessageTypes::INVITATION;
 
     public function __construct(
-        public ?string $message_id = Str::uuid(),
         public SenderOperatorDTO $sender_operator,
         public RecipientOperatorDTO $recipient_operator,
         public SenderDTO $sender,
@@ -32,7 +31,7 @@ class InvitationMessageDTO extends Data {
 
     public function transform(null | TransformationContextFactory | TransformationContext $transformationContext = null): array {
         return [
-            "message_id" => $this->message_id,
+            'message_id' => Str::uuid(),
             "message_type" => $this->message_type,
             "sender" => [
                 "id" => $this->sender->id,
