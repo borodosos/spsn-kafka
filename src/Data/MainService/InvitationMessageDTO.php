@@ -12,12 +12,11 @@ class InvitationMessageDTO extends Data {
     private string $message_type = SpsnTdMessageTypes::INVITATION;
 
     public function __construct(
-        public ?string $message_id = null,
         public SenderOperatorDTO $sender_operator,
         public RecipientOperatorDTO $recipient_operator,
         public SenderDTO $sender,
         public RecipientDTO $recipient,
-
+        public string | int | null $message_id = null,
     ) {
     }
 

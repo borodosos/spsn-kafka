@@ -12,7 +12,6 @@ class ServiceDocumentDTO extends Data {
     private string $message_type = SpsnTdMessageTypes::SERVICE_DOCUMENT;
 
     public function __construct(
-        public ?string $message_id = null,
         public string $workflow_id,
         public string $document_id,
         public SenderOperatorDTO $sender_operator,
@@ -20,6 +19,7 @@ class ServiceDocumentDTO extends Data {
         public ContentSenderDTO $sender,
         public ContentRecipientDTO $recipient,
         public ServiceMessageDTO $message,
+        public string | int | null $message_id = null,
     ) {
     }
 
