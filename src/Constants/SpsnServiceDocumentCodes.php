@@ -10,6 +10,7 @@ class SpsnServiceDocumentCodes {
     public const SEND_MESSAGE_TO_PARTNER = '100208';
     public const VALIDATION_FAILED = '100501';
     public const SIGNING_REJECTED = '100503';
-    public const SERVICE_ERROR = '100506';
+    public const ERROR = '100506';
+    public const SERVICE_ERROR = '100507';
     public const DTS_ERROR = '100508';
 }
