@@ -18,7 +18,7 @@ class ServiceDocumentDTO extends Data {
         public RecipientOperatorDTO $recipient_operator,
         public ContentSenderDTO $sender,
         public ContentRecipientDTO $recipient,
-        public ServiceMessageDTO $message,
+        public ServiceMessageDTO $service_message,
         public string | int | null $message_id = null,
     ) {
     }
@@ -50,7 +50,7 @@ class ServiceDocumentDTO extends Data {
             'recipient' => [
                 'id' => $this->recipient->id,
             ],
-            'service_message' => $this->message,
+            'service_message' => $this->service_message,
         ];
     }
 }
