@@ -1,17 +1,16 @@
 <?php
-
 namespace Spsn\Kafka\Data\MainService;
 use Illuminate\Http\JsonResponse;
 use Spatie\LaravelData\Data;
 
 class SenderDTO extends Data {
     public function __construct(
-        public string $id,
-        public string $country_code,
-        public string $company,
-        public string | null $inn,
-        public string | null $kpp,
-        public string | null $bin,
+        public ?string $id,
+        public ?string $country_code,
+        public ?string $company,
+        public ?string $inn,
+        public ?string $kpp,
+        public ?string $bin,
         public string $email,
     ) {
     }
