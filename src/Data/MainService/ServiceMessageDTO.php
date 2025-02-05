@@ -1,5 +1,4 @@
 <?php
-
 namespace Spsn\Kafka\Data\MainService;
 use Illuminate\Http\JsonResponse;
 use Spatie\LaravelData\Data;
@@ -7,7 +6,7 @@ use Spatie\LaravelData\Data;
 class ServiceMessageDTO extends Data {
     public function __construct(
         public string $code,
-        public string $content,
+        public ?string $content,
         public ?string $payload = null
     ) {
     }
