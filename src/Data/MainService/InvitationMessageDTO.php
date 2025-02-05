@@ -8,7 +8,7 @@ use Spatie\LaravelData\Support\Transformation\TransformationContextFactory;
 use Spsn\Kafka\Constants\MessageTypes\SpsnTdSrv\SpsnTdMessageTypes;
 
 class InvitationMessageDTO extends Data {
-    private string $message_type = SpsnTdMessageTypes::INVITATION;
+    public string $message_type = SpsnTdMessageTypes::INVITATION;
 
     public function __construct(
         public SenderOperatorDTO $sender_operator,
