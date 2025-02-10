@@ -1,6 +1,5 @@
 <?php
 namespace Spsn\Kafka\Data\MainService;
-use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Str;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Support\Transformation\TransformationContext;
@@ -27,29 +26,29 @@ class ContentMessageDTO extends Data {
         try {
             return parent::from(...$payloads);
         } catch (\Exception $e) {
-            throw new \Illuminate\Http\Exceptions\HttpResponseException(response()->json(['message' => $e->getMessage()], JsonResponse::HTTP_INTERNAL_SERVER_ERROR));
+            throw new \Exception($e->getMessage());
         }
     }
 
     public function transform(null | TransformationContextFactory | TransformationContext $transformationContext = null): array {
         return [
-            'message_id'         => $this->message_id ?? Str::uuid(),
-            'workflow_id'        => $this->workflow_id,
-            'document_id'        => $this->document_id,
-            'message_type'       => $this->message_type,
-            'sender_operator'    => [
+            'message_id' => $this->message_id ?? Str::uuid(),
+            'workflow_id' => $this->workflow_id,
+            'document_id' => $this->document_id,
+            'message_type' => $this->message_type,
+            'sender_operator' => [
                 'id' => $this->sender_operator->id,
             ],
             'recipient_operator' => [
                 'id' => $this->recipient_operator->id,
             ],
-            'sender'             => [
+            'sender' => [
                 'id' => $this->sender->id,
             ],
-            'recipient'          => [
+            'recipient' => [
                 'id' => $this->recipient->id,
             ],
-            'document'           => $this->document,
+            'document' => $this->document,
         ];
     }
 }
