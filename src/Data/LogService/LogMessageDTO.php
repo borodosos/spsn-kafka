@@ -11,12 +11,13 @@ use Spatie\LaravelData\Support\Transformation\TransformationContextFactory;
 class LogMessageDTO extends Data {
 
     public function __construct(
-        public ?bool $log_service_start_service_message = false,
-        public ?bool $end_service_message = true,
         public string $service_name,
         public string | int $log_service_id,
         public string $log_type,
         public mixed $data,
+        public string $timestamp,
+        public ?bool $log_service_start_service_message = false,
+        public ?bool $end_service_message = true,
     ) {
     }
 
@@ -37,7 +38,7 @@ class LogMessageDTO extends Data {
             'log_service_id' => $this->log_service_id,
             'log_type' => $this->log_type,
             'data' => $this->data,
-            'timestamp' => Carbon::now()->timestamp,
+            'timestamp' => $this->timestamp,
         ];
     }
 }
