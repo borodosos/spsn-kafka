@@ -35,7 +35,7 @@ class SpsnKafkaConsumer extends Command
             ->withConsumerGroupId(config('kafka.consumer_group_id'))
             ->withAutoCommit()
             ->withHandler(function (KafkaMessage $message) {
-                $this->info('Kafka message: '.$message->getBody().json_encode($message->getHeaders()));
+                $this->info('Kafka message: '. gettype($message->getBody()) === 'array' ? json_encode($message->getBody()) :$message->getBody().json_encode($message->getHeaders()));
 
                 $body = json_encode([
                     'topic'   => $message->getTopicName(),
