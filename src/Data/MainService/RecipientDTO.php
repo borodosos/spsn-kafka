@@ -10,7 +10,7 @@ class RecipientDTO extends Data {
         public ?string $inn,
         public ?string $kpp,
         public ?string $bin,
-        public string $email,
+        public ?string $email,
     ) {
     }
 
