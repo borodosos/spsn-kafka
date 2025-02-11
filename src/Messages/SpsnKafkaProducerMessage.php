@@ -1,5 +1,4 @@
 <?php
-
 namespace Spsn\Kafka\Messages;
 
 use Carbon\Carbon;
@@ -15,11 +14,11 @@ class SpsnKafkaProducerMessage extends Message {
     ) {
         parent::__construct(
             headers: $headers ?? ['header-key' => 'key', 'id' => Str::uuid(), 'app_service' => config('spsn_kafka.app_service_name')],
-            body: json_encode([
-                'type' => $messageType,
+            body: [
+                'type'      => $messageType,
                 'timestamp' => Carbon::now()->format('d.m.Y H:i:s'),
-                'payload' => $message,
-            ]),
+                'payload'   => $message,
+            ],
             key: $key ?? 'key',
         );
 
