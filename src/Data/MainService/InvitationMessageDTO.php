@@ -56,6 +56,11 @@ class InvitationMessageDTO extends Data {
                 "bin"          => $this->recipient->bin,
                 "email"        => $this->recipient->email,
             ],
+            "service_message"    => [
+                "code"    => $this->service_message->code,
+                "content" => $this->service_message->content,
+                "payload" => $this->service_message->payload,
+            ],
         ];
     }
 }
