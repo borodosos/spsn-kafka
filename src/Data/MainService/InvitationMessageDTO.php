@@ -14,7 +14,7 @@ class InvitationMessageDTO extends Data {
         public RecipientOperatorDTO $recipient_operator,
         public SenderDTO $sender,
         public RecipientDTO $recipient,
-        public ServiceMessageDTO $serviceMessage,
+        public ServiceMessageDTO $service_message,
         public string | int | null $message_id = null,
     ) {
     }
