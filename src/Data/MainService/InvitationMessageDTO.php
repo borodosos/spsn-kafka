@@ -31,6 +31,7 @@ class InvitationMessageDTO extends Data {
 
     public function transform(null | TransformationContextFactory | TransformationContext $transformationContext = null): array {
         return [
+            'message_id'         => $this->workflow_id,
             'message_id'         => $this->message_id ?? Str::uuid(),
             "message_type"       => $this->message_type,
             'sender_operator'    => [
