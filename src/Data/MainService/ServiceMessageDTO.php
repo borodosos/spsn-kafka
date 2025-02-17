@@ -4,7 +4,7 @@ use Spatie\LaravelData\Data;
 
 class ServiceMessageDTO extends Data {
     public function __construct(
-        public string $code,
+        public ?string $code,
         public ?string $content = null,
         public ?string $payload = null,
         public ?array $errors = null
