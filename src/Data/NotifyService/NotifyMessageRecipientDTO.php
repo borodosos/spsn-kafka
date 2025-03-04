@@ -2,12 +2,16 @@
 namespace Spsn\Kafka\Data\NotifyService;
 use Spatie\LaravelData\Data;
 
-class NotifyMessageDTO extends Data {
+class NotifyMessageRecipientDTO extends Data {
 
     public function __construct(
-        public string $notify_type,
-        public string $address,
-        public NotifyMessageDataDTO $data,
+        public string $id,
+        public string $country_code,
+        public string $company,
+        public ?string $inn,
+        public ?string $kpp,
+        public ?string $bin,
+        public string $email,
     ) {
     }
 
