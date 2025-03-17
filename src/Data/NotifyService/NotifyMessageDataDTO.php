@@ -5,7 +5,9 @@ use Spatie\LaravelData\Data;
 class NotifyMessageDataDTO extends Data {
 
     public function __construct(
-        public NotifyMessageRecipientDTO $recipient,
+        public string $email,
+        public string $code,
+        public string $user_id,
     ) {
     }
 
