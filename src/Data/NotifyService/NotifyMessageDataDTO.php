@@ -8,6 +8,7 @@ class NotifyMessageDataDTO extends Data {
         public string $email,
         public string $code,
         public string $user_id,
+        public ?string $country_code,
     ) {
     }
 
