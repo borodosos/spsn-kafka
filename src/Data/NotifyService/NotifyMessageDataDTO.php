@@ -6,7 +6,7 @@ class NotifyMessageDataDTO extends Data {
 
     public function __construct(
         public string $email,
-        public string $code,
+        public ?string $code,
         public string $user_id,
         public ?string $country_code,
     ) {
