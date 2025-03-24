@@ -25,6 +25,6 @@ return new class() extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('log_kafka_outgoing_messages');
+        Schema::dropIfExists('spsn_log_kafka_outgoing_messages');
     }
 };
