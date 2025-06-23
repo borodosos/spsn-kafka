@@ -11,7 +11,7 @@ class RecipientDTO extends Data {
         public ?string $kpp,
         public ?string $bin,
         public ?string $email,
-        public ?string $phone
+        public ?string $phone = null
     ) {
     }
 
