@@ -25,14 +25,14 @@ return [
     ],
     'topics' => match (env('APP_ENV')) {
         'production' => [
-            SpsnAppServiceNames::SPSN_TD => 'stable-td-srv',
-            SpsnAppServiceNames::SPSN_NOTIFY => 'stable-notif-srv',
-            SpsnAppServiceNames::SPSN_BILLING => 'stable-billing-srv',
-            SpsnAppServiceNames::SPSN_TICKETS => 'stable-tiket-srv',
-            SpsnAppServiceNames::SPSN_IDOCS => 'stable-idocs-srv',
-            SpsnAppServiceNames::SPSN_STT => 'stable-stt-srv',
-            SpsnAppServiceNames::SPSN_LOG => 'stable-log-srv',
-            SpsnAppServiceNames::SPSN_STORAGE => 'stable-storage-srv',
+            SpsnAppServiceNames::SPSN_TD => 'prod-td-srv',
+            SpsnAppServiceNames::SPSN_NOTIFY => 'prod-notif-srv',
+            SpsnAppServiceNames::SPSN_BILLING => 'prod-billing-srv',
+            SpsnAppServiceNames::SPSN_TICKETS => 'prod-tiket-srv',
+            SpsnAppServiceNames::SPSN_IDOCS => 'prod-idocs-srv',
+            SpsnAppServiceNames::SPSN_STT => 'prod-stt-srv',
+            SpsnAppServiceNames::SPSN_LOG => 'prod-log-srv',
+            SpsnAppServiceNames::SPSN_STORAGE => 'prod-storage-srv',
         ],
         'stage' => [
             SpsnAppServiceNames::SPSN_TD => 'stage-td-srv',
