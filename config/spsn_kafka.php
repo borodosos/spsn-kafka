@@ -67,14 +67,14 @@ return [
     },
     'usernames' => match (env('APP_ENV')) {
         'production' => [
-            SpsnAppServiceNames::SPSN_TD => 'kuser-td-stable-td-srv',
-            SpsnAppServiceNames::SPSN_NOTIFY => 'kuser-td-stable-notif-srv',
-            SpsnAppServiceNames::SPSN_BILLING => 'kuser-td-stable-billing-srv',
-            SpsnAppServiceNames::SPSN_TICKETS => 'kuser-td-stable-tiket-srv',
-            SpsnAppServiceNames::SPSN_IDOCS => 'kuser-td-stable-idocs-srv',
-            SpsnAppServiceNames::SPSN_STT => 'kuser-td-stable-stt-srv',
-            SpsnAppServiceNames::SPSN_LOG => 'kuser-td-stable-log-srv',
-            SpsnAppServiceNames::SPSN_STORAGE => 'kuser-td-stable-storage-srv',
+            SpsnAppServiceNames::SPSN_TD => 'kuser-td-prod-td-srv',
+            SpsnAppServiceNames::SPSN_NOTIFY => 'kuser-td-prod-notif-srv',
+            SpsnAppServiceNames::SPSN_BILLING => 'kuser-td-prod-billing-srv',
+            SpsnAppServiceNames::SPSN_TICKETS => 'kuser-td-prod-tiket-srv',
+            SpsnAppServiceNames::SPSN_IDOCS => 'kuser-td-prod-idocs-srv',
+            SpsnAppServiceNames::SPSN_STT => 'kuser-td-prod-stt-srv',
+            SpsnAppServiceNames::SPSN_LOG => 'kuser-td-prod-log-srv',
+            SpsnAppServiceNames::SPSN_STORAGE => 'kuser-td-prod-storage-srv',
         ],
         'stage' => [
             SpsnAppServiceNames::SPSN_TD => 'kuser-td-stage-td-srv',
