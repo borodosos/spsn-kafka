@@ -10,7 +10,8 @@ class NotifyMessageDataDTO extends Data {
         public string $user_id,
         public ?string $country_code,
         public ?string $sender_company = null,
-        public ?bool $is_recipient_registered = null
+        public ?bool $is_recipient_registered = null,
+        public ?string $document_name = null
     ) {
     }
 
