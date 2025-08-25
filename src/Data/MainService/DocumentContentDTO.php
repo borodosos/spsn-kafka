@@ -10,6 +10,7 @@ class DocumentContentDTO extends Data {
         public DocumentMetaDTO $meta,
         public array $country_codes,
         public ?string $message = null,
+        public array $send_notification_to = []
     ) {
     }
 
