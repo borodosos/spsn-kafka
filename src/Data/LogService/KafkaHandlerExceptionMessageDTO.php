@@ -5,17 +5,15 @@ namespace Spsn\Kafka\Data\LogService;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Support\Transformation\TransformationContext;
 use Spatie\LaravelData\Support\Transformation\TransformationContextFactory;
+use Spsn\Kafka\Events\SpsnKafkaMessageReceived;
 
-class LogMessageDTO extends Data {
-
+class KafkaHandlerExceptionMessageDTO extends Data {
     public function __construct(
         public string $service_name,
-        public string | int $log_service_id,
-        public string $log_type,
-        public mixed $data,
-        public string $timestamp,
-        public ?bool $log_service_start_service_message = false,
-        public ?bool $end_service_message = true,
+        public array $kafka_message,
+        public string $message,
+        public int|string $code,
+        public array $trace
     ) {
     }
 
@@ -30,13 +28,11 @@ class LogMessageDTO extends Data {
 
     public function transform(null | TransformationContextFactory | TransformationContext $transformationContext = null): array {
         return [
-            'log_service_start_service_message' => $this->log_service_start_service_message,
-            'end_service_message' => $this->end_service_message,
             'service_name' => $this->service_name,
-            'log_service_id' => $this->log_service_id,
-            'log_type' => $this->log_type,
-            'data' => $this->data,
-            'timestamp' => $this->timestamp,
+            'kafka_message' => $this->kafka_message,
+            'message' => $this->message,
+            'code' => $this->code,
+            'trace' => $this->trace
         ];
     }
 }
