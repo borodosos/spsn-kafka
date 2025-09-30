@@ -13,4 +13,5 @@ class SpsnServiceDocumentCodes {
     public const ERROR = '100506';
     public const SERVICE_ERROR = '100507';
     public const DTS_ERROR = '100508';
+    public const REVOCATION = '100601';
 }
