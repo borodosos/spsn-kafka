@@ -9,6 +9,7 @@ class DocumentMetaDTO extends Data {
 
         /** @var DocumentArtifactDTO[] */
         public array $artifacts,
+        public ?string $file_name = null
     ) {
     }
 
